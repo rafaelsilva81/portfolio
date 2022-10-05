@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { ArrowRight } from 'phosphor-react'
 import { Card } from '../components/Card';
 import api from '../services/api';
+import { motion } from 'framer-motion'
 
 interface Project {
     _id: string,
@@ -40,11 +41,21 @@ export const Projects = () => {
 
     return (
         <div id="projects" className="p-10 md:p-24 bg-neutral-900">
-            <div className="flex flex-col">
-                <span className="text-indigo-700 text-3xl font-bold my-2"> {'< Projects />'} </span>
-                <h2 className="text-6xl font-bold text-neutral-200 mb-2 italic"> "Talk is cheap, show me the Code" </h2>
-                <p className="text-xl text-neutral-200 mb-4"> Here are some of my projects, you can click on any to have more details! </p>
-            </div>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.3 }}
+                variants={{
+                    visible: { x: 0, opacity: 1 },
+                    hidden: { x: -100, opacity: 0 },
+                }}>
+                <div className="flex flex-col">
+                    <span className="text-indigo-700 text-3xl font-bold my-2"> {'< Projects />'} </span>
+                    <h2 className="text-6xl font-bold text-neutral-200 mb-2 italic"> "Talk is cheap, show me the Code" </h2>
+                    <p className="text-xl text-neutral-200 mb-4"> Here are some of my projects, you can click on any to have more details! </p>
+                </div>
+            </motion.div>
 
             {/* Grid with 3 columns, only 1 column on mobile */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
