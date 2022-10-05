@@ -5,6 +5,8 @@ import { Hero } from "./components/Hero"
 import { Projects } from "./components/Projects"
 import { Technologies } from "./components/Technologies"
 
+import '../../styles/disableScroll.css'
+
 function Home() {
 
   return (

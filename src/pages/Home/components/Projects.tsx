@@ -58,12 +58,12 @@ export const Projects = () => {
             </motion.div>
 
             {/* Grid with 3 columns, only 1 column on mobile */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
                 {/* Card component */}
                 {/* Will only show 1 if mobile */}
                 {projectData.map((project: Project, idx) => {
                     return (
-                        <Card key={idx} {...project} />
+                        <Card key={project._id} {...project} />
                     );
                 })}
             </div>

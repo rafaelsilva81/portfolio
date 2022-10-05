@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router'
 
 interface Props {
     _id: string,
@@ -17,6 +18,8 @@ interface Props {
 
 export const Card = (props: any) => {
 
+    const navigate = useNavigate()
+
     const { _id, title, short_description: shortDescription, images, tags, qtdTags = 2 } = props;
 
     let imageUrl;
@@ -26,7 +29,7 @@ export const Card = (props: any) => {
 
 
     const handleClick = () => {
-        console.log('clicked');
+        navigate(`/projects/${_id}`)
     };
 
     return (
@@ -39,7 +42,13 @@ export const Card = (props: any) => {
                 visible: { opacity: 1, x: 0 },
                 hidden: { opacity: 0, x: -100 }
             }}
+            whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+            }}
         >
+
+
             <div id="projectCard" className='cursor-pointer mb-2' onClick={handleClick}>
                 <div className="flex flex-col bg-neutral-200 rounded-t-md">
                     {/* Grid with project info and image */}
@@ -62,7 +71,7 @@ export const Card = (props: any) => {
                     {tags.map((tag: string, idx: number) => {
                         if (idx < qtdTags) {
                             return (
-                                <span className="text-lg text-neutral-200 font-bold px-2 bg-neutral-800 mx-1 rounded-md"> {tag} </span>
+                                <span key={tag} className="text-lg text-neutral-200 font-bold px-2 bg-neutral-800 mx-1 rounded-md"> {tag} </span>
                             );
                         }
                     })}
