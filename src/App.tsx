@@ -1,32 +1,21 @@
-import { Layout } from "./components/Layout"
-import { Slider } from "./components/Slider"
-import { About } from "./pages/About"
-import { Hero } from "./pages/Hero"
-import { Projects } from "./pages/Projects"
-import { Technologies } from "./pages/Technologies"
+import { Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+import { ProjectDetails } from "./pages/ProjectDetails"
+import { ProjectList } from "./pages/ProjectList"
 
 function App() {
 
   return (
     <div className="App">
-      {/* Page layout component */}
-      <Slider />
-
-      <Layout>
-        <Hero />
-      </Layout>
-
-      <Layout>
-        <About />
-      </Layout>
-
-      <Layout>
-        <Technologies />
-      </Layout>
-
-      <Layout>
-        <Projects />
-      </Layout>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="/projects">
+            <Route index element={<ProjectList />} />
+            <Route path="/projects/:id" element={<ProjectDetails />} />
+          </Route>
+        </Route>
+      </Routes>
 
     </div>
   )

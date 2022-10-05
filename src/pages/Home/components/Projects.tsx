@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowRight } from 'phosphor-react'
-import { Card } from '../components/Card';
-import api from '../services/api';
+import { Card } from '../../../components/Card';
+import api from '../../../services/api';
 import { motion } from 'framer-motion'
 
 interface Project {

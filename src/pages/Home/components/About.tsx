@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 
 export const About = () => {
     return (
-        <div id="about">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-1 p-10 md:p-20">
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-1 p-10 md:p-20" id="about">
                 <div className="flex col-span-1 md:col-span-2 flex-col justify-center">
                     <motion.div
                         initial="hidden"
@@ -47,6 +47,6 @@ export const About = () => {
                     {/* Não sei oq colocar aq ainda :v */}
                 </div>
             </div>
-        </div >
+        
     )
 }

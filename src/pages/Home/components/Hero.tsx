@@ -1,13 +1,12 @@
 import React from 'react'
-import photo from '../assets/images/placeholder.webp'
+import photo from '../../../assets/images/placeholder.webp'
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 export const Hero = () => {
     return (
-        <div id="hero">
-            {/* grid with flex having text on the left and img on the right */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-1 p-10 md:p-20">
+            /* grid with flex having text on the left and img on the right */
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-1 p-10 md:p-20" id="hero">
                 <div className="flex order-2 md:order-1 col-span-2 flex-col justify-center">
                     <motion.div initial="hidden"
                         whileInView="visible"
@@ -40,7 +39,7 @@ export const Hero = () => {
                     </motion.div>
                 </div>
             </div>
-        </div>
+   
     )
 }
 

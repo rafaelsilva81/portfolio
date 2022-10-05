@@ -1,5 +1,5 @@
 import React from 'react'
-import { ts, js, python, node, react, firebase, html, css, tailwind, mongo, pgsql, ionic, git, bootstrap } from '../assets/Technologies'
+import { ts, js, python, node, react, firebase, html, css, tailwind, mongo, pgsql, ionic, git, bootstrap } from '../../../assets/Technologies'
 import { motion } from 'framer-motion'
 
 export const Technologies = () => {
@@ -60,7 +60,6 @@ export const Technologies = () => {
                     ... But I'm always studiyng something new!
                 </div>
             </motion.div>
-
         </div>
     )
 }
