@@ -7,7 +7,7 @@ interface Props {
 export const Layout = (props: Props) => {
     const { children } = props;
     return (
-        <div className='h-screen w-screen bg-neutral-900'>
+        <div className='max-h-screen bg-neutral-900'>
             {/* put children */}
             {children}
         </div>

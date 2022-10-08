@@ -2,29 +2,29 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
 
-interface Props {
+interface Project {
     _id: string,
     title: string,
     short_description: string,
-    images: {
-        key: string[]
-        mimetype: string[]
-        filename: []
-        bucket: []
+    image: {
+        key: string
+        mimetype: string
+        filename: string
+        bucket: string
     }
     tags: string[],
     qtdTags?: number
 }
 
-export const Card = (props: any) => {
+export const Card = (props: Project) => {
 
     const navigate = useNavigate()
 
-    const { _id, title, short_description: shortDescription, images, tags, qtdTags = 2 } = props;
+    const { _id, title, short_description: shortDescription, image, tags, qtdTags = 2 } = props;
 
     let imageUrl;
 
-    const coverImage = images.key[0];
+    const coverImage = image.key
     imageUrl = `https://portfolioapi-rafaelsilva81.herokuapp.com/public/${coverImage}`;
 
 

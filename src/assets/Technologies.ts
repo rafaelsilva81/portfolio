@@ -12,6 +12,7 @@ import mongo from './images/technologies/mongodb.svg';
 import git from './images/technologies/git.svg';
 import ionic from './images/technologies/ionic.svg';
 import bootstrap from './images/technologies/bootstrap.svg';
+import php from './images/technologies/php.svg';
 
-export { ts, js, node, react, firebase, python, html, css, pgsql, tailwind, mongo, git, ionic, bootstrap };
+export { ts, js, node, react, firebase, python, html, css, pgsql, tailwind, mongo, git, ionic, bootstrap, php };
 

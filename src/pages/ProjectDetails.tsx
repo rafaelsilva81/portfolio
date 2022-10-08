@@ -7,17 +7,18 @@ import { ArrowSquareUpRight } from 'phosphor-react'
 import { FaGithub } from 'react-icons/fa'
 
 import '../styles/disableScroll.css'
+import { ImgModal } from '../components/ImgModal';
 
 interface Project {
   _id: string,
   title: string,
   description: string,
   short_description: string,
-  images: {
-    key: string[]
-    mimetype: string[]
-    filename: []
-    bucket: []
+  image: {
+    key: string
+    mimetype: string
+    filename: string
+    bucket: string
   }
   tags: string[],
   github?: string,
@@ -48,8 +49,16 @@ export const ProjectDetails = () => {
     //setProjectData(offlineData);
   }, []);
 
-  const { title, description, short_description, images, tags, github, link, completed } = projectData || {};
 
+  const { title, description, short_description, image, tags, github, link, completed } = projectData || {};
+  console.log(image)
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    console.log('clicked')
+    setShowModal(true);
+  }
 
   return (
     /* grid with flex having text on the left and img on the right */
@@ -67,13 +76,15 @@ export const ProjectDetails = () => {
                 {/* Add images */}
                 <div className="flex flex-row flex-wrap w-full">
                   {
-                    images &&
-                    images.key.map((image: string) => (
-                      /* Contain all images inside container, dont go over 100% height */
-                      <div className={`w-1/2 h-full pr-3 md:w-1/3`} > {/* Render 3 images on md and only 2 on mobile */}
-                        <div className="max-h-full max-w-full w-96 h-96 bg-cover bg-center border-neutral-200 border-2" style={{ backgroundImage: `url(${PUBLIC_URL}${encodeURIComponent(image)})` }} />
+                    image &&
+
+                    <>
+                      <ImgModal image={PUBLIC_URL + image.key} show={showModal} />
+                      {/* Hover animation with framer*/}
+                      <div className={`w-1/2 h-full pr-3 md:w-1/3 cursor-pointer`} onClick={openModal}> {/* Render 3 images on md and only 2 on mobile */}
+                        <div className="max-h-full max-w-full w-96 h-96 bg-cover bg-center border-neutral-200 border-2" style={{ backgroundImage: `url(${PUBLIC_URL}${image.key})` }} />
                       </div>
-                    ))
+                    </>
                   }
                 </div>
               </div>

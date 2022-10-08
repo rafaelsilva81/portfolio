@@ -9,11 +9,11 @@ interface Project {
   title: string,
   description: string,
   short_description: string,
-  images: {
-    key: string[]
-    mimetype: string[]
-    filename: []
-    bucket: []
+  image: {
+    key: string
+    mimetype: string
+    filename: string
+    bucket: string
   }
   tags: string[],
   github?: string,
