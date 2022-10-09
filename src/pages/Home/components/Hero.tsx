@@ -1,5 +1,5 @@
 import React from 'react'
-import photo from '../../../assets/images/placeholder.webp'
+import photo from '../../../assets/images/portfolio.webp'
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
