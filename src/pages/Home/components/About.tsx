@@ -29,7 +29,7 @@ export const About = () => {
                         I've worked as a Freelancer before, but I want to <span className='font-bold text-indigo-600'> take my career to the next level</span>. That's why I'm currently looking for an internship or a junior position, so if you have any opportunities, <span className='font-bold text-indigo-600'> please let me know</span>!
                     </p>
                     {/* Buttons for resume (in portuguese and english) */}
-                    <div className="flex mt-4">
+                    {/*<div className="flex mt-4">
                         <a href="#" target="_blank" rel="noreferrer">
                             <button className="bg-indigo-700 text-neutral-200 px-4 py-2 rounded-md hover:bg-indigo-600 transition ease-in-out">
                                 Resume (EN)
@@ -40,7 +40,7 @@ export const About = () => {
                                 Resume (PT-BR)
                             </button>
                         </a>
-                    </div>
+                    </div> */}
                 </motion.div >
             </div>
 
