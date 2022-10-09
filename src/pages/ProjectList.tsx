@@ -2,29 +2,12 @@ import React, { useEffect, useState } from 'react'
 import api from '../services/api'
 import { motion } from 'framer-motion'
 import { Card } from '../components/Card'
-import { Loading } from './Home/components/Loading'
-
-interface Project {
-  _id: string,
-  title: string,
-  description: string,
-  short_description: string,
-  image: {
-    key: string
-    mimetype: string
-    filename: string
-    bucket: string
-  }
-  tags: string[],
-  github?: string,
-  link?: string
-  completed: boolean
-}
-
+import { Loading } from '../components/Loading'
+import { ProjectDTO } from '../dtos/ProjectDTO'
 
 export const ProjectList = () => {
 
-  const [projectData, setProjectData] = useState<Project[] | undefined>(undefined);
+  const [projectData, setProjectData] = useState<ProjectDTO[] | undefined>(undefined);
   useEffect(() => {
     api
       .get(`/projects`)
@@ -39,7 +22,7 @@ export const ProjectList = () => {
   }, []);
 
   return (
-    <div id="project-list" className='bg-neutral-900 p-10 md:p-24'>
+    <div id="project-list" className='bg-neutral-900 p-10 md:p-24 min-h-screen'>
       {
         projectData ? (
           <div className="flex col-span-1 md:col-span-2 flex-col justify-center">
@@ -59,7 +42,7 @@ export const ProjectList = () => {
             {/* Map projects into cards (use flex)*/}
             <div className="flex flex-col md:flex-row flex-wrap">
               {
-                projectData.map((project: Project, index) => (
+                projectData.map((project: ProjectDTO, index) => (
                   <div key={project._id} className="w-full md:w-[30%] p-2 mr-4"><Card {...project} /></div>
                 ))
               }
