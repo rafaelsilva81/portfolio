@@ -1,26 +1,15 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
+import { ProjectDTO } from '../dtos/ProjectDTO'
 
-interface Project {
-    _id: string,
-    title: string,
-    short_description: string,
-    image: {
-        key: string
-        mimetype: string
-        filename: string
-        bucket: string
-    }
-    tags: string[],
-    qtdTags?: number
-}
 
-export const Card = (props: Project) => {
+export const Card = (props: ProjectDTO) => {
 
     const navigate = useNavigate()
 
     const { _id, title, short_description: shortDescription, image, tags, qtdTags = 2 } = props;
+
 
     let imageUrl;
 
@@ -50,17 +39,17 @@ export const Card = (props: Project) => {
 
 
             <div id="projectCard" className='cursor-pointer mb-2' onClick={handleClick}>
-                <div className="flex flex-col bg-neutral-200 rounded-t-md">
+                <div className="flex flex-col bg-neutral-200 rounded-t-md h-64">
                     {/* Grid with project info and image */}
-                    <div className="grid grid-cols-1 md:grid-cols-2">
+                    <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 h-full">
                         {/* Project info with padding */}
-                        <div className="flex flex-col justify-center p-4">
-                            <h2 className="text-4xl font-bold text-indigo-700 my-2"> {title} </h2>
-                            <p className="text-xl text-neutral-900 mb-4"> {shortDescription} </p>
+                        <div className="flex flex-col justify-center p-4 col-span-1 order-2 md:order-1 py-2">
+                            <h2 className="text-4xl font-bold text-indigo-700 break-words md:my-2"> {title} </h2>
+                            <p className="text-xl text-neutral-900 md:mb-4"> {shortDescription} </p>
                         </div>
-                        <div className="flex justify-center items-center m-0">
+                        <div className="flex justify-center items-center m-0 col-span-1 order-1 md:order-2">
                             {/* Contain img inside card */}
-                            <div className="w-full h-full bg-cover bg-center mr-0 md:mr-1" style={{ backgroundImage: `url(${imageUrl})` }} />
+                            <div className="w-full h-full bg-cover bg-center mr-0 md:rounded-t-none md:rounded-tr-md rounded-t-md " style={{ backgroundImage: `url(${imageUrl})` }} />
                         </div>
                     </div>
                 </div>
