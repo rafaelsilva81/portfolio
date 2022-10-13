@@ -50,14 +50,14 @@ export const ProjectDetails = () => {
 
   return (
     /* grid with flex having text on the left and img on the right */
-    <div className="h-screen w-full bg-neutral-900">
+    <div className="min-h-screen w-full bg-neutral-900">
       {
         projectData ? (
           <>
             <div className="flex flex-col md:flex-row h-full w-full overflow-hidden">
 
               {/* Left half */}
-              <div className="flex flex-col justify-center items-center md:items-start md:w-2/3 p-10 md:p-0 md:pl-24 md:pr-12">
+              <div className="flex flex-col justify-center items-start md:w-2/3 p-10 md:p-0 md:pl-24 md:pr-12">
                 <span className="text-indigo-700 text-2xl md:text-3xl font-bold my-2"> {'< Project />'} </span>
                 <h2 className="text-4xl font-bold text-neutral-200 mb-2 md:text-6xl"> {title} </h2>
                 <p className="text-lg md:text-xl text-neutral-200 mb-4 description-content"> {description ? parse(description) : ''} </p>
@@ -82,10 +82,10 @@ export const ProjectDetails = () => {
               </div>
 
               {/* Right half */}
-              <div className="flex flex-col justify-center items-center md:items-end md:w-2/5 pr-10 md:pr-24 border-neutral-200 border-opacity-30 border-t-2 md:border-t-0 md:border-l-2">
+              <div className="flex flex-col justify-start md:justify-center ml-2 md:ml-0 md:items-end md:w-2/5 pr-10 md:pr-24 border-neutral-200 border-opacity-30 border-0 md:border-l-2">
                 <div className="flex flex-col flex-wrap mb-4">
                   <span className="text-lg text-neutral-200 font-bold py-1 text-start md:text-end mr-3"> Status : </span>
-                  <StatusTag completed={completed} />
+                  <div className="flex flex-row"><StatusTag completed={completed} /></div>
                 </div>
                 <div className="flex flex-col flex-wrap mb-4">
                   <span className="text-lg text-neutral-200 font-bold py-1 text-start md:text-end mr-3"> Tags : </span>

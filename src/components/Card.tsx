@@ -44,8 +44,11 @@ export const Card = (props: ProjectDTO) => {
                     <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 h-full">
                         {/* Project info with padding */}
                         <div className="flex flex-col justify-center p-4 col-span-1 order-2 md:order-1 py-2">
-                            <h2 className="text-4xl font-bold text-indigo-700 break-words md:my-2"> {title} </h2>
-                            <p className="text-xl text-neutral-900 md:mb-4"> {shortDescription} </p>
+                            <h2 className="text-3xl font-bold text-indigo-700 break-words md:my-2"> {title} </h2>
+                             {/* Div for description should not go past container height and break word */}
+                            <div className="text-lg text-neutral-900 text-ellipsis overflow-hidden h-20 md:h-32 mt-1">
+                                {shortDescription}
+                                </div>
                         </div>
                         <div className="flex justify-center items-center m-0 col-span-1 order-1 md:order-2">
                             {/* Contain img inside card */}
@@ -55,16 +58,16 @@ export const Card = (props: ProjectDTO) => {
                 </div>
                 {/* Add tags below card */}
                 <div className="flex flex-row justify-start items-center rounded-b-md bg-indigo-700 p-2">
-                    <span className="text-lg text-neutral-200 font-bold mx-2"> {`< Tags />`} </span>
+                    <span className="text-sm text-neutral-200 font-bold mx-1"> {`< Tags />`} </span>
                     {/* Badges for tags */}
                     {tags.map((tag: string, idx: number) => {
                         if (idx < qtdTags) {
                             return (
-                                <span key={tag} className="text-lg text-neutral-200 font-bold px-2 bg-neutral-800 mx-1 rounded-md"> {tag} </span>
+                                <span key={tag} className="text-sm text-neutral-200 font-bold px-2 bg-neutral-800 mx-1 rounded-md"> {tag} </span>
                             );
                         }
                     })}
-                    {tags.length - 3 > 0 && <span className="text-lg text-neutral-200 font-bold px-2 bg-neutral-800 mx-1 rounded-md"> + {tags.length - qtdTags} </span>}
+                    {tags.length - 3 > 0 && <span className="text-sm text-neutral-200 font-bold px-2 bg-neutral-800 mx-1 rounded-md"> + {tags.length - qtdTags} </span>}
                 </div>
             </div>
         </motion.div>
